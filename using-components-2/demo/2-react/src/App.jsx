@@ -44,7 +44,7 @@ function App() {
           <calcite-panel id="map-container">
             <arcgis-map
               ground="world-elevation"
-              itemId="5fe7222cfd4e41cab4321cc1fde66cc2"
+              itemId="84d4324f8ebf4612878fcaea6f54d532"
               id="map"
             ></arcgis-map>
             <calcite-panel id="elevation-panel" heading="Elevation profile">
