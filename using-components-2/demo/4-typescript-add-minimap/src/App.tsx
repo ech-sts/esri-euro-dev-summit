@@ -135,7 +135,7 @@ function App() {
               </calcite-chip-group>
               <arcgis-elevation-profile
                 reference-element="map"
-                unit="imperial"
+                unit="metric"
                 hide-clear-button
                 hide-legend
                 hide-settings-button
