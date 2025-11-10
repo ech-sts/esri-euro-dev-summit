@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      2025 Esri Developer & Technology Summit - Designing Apps with Calcite
+      Design System
+    </title>
+
+    <!-- Calcite import -->
+     <script>
+      // Set the locale before the SDK loads
+      esriConfig = {
+        locale: "en-GB",
+      };
+     </script>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- ArcGIS Maps SDK for JavaScript imports -->
+    <script src="https://jsdev.arcgis.com/4.34/"></script>
+    <script
+      type="module"
+      src="https://jsdev.arcgis.com/4.34/map-components/"
+    ></script>
+    <script
+      type="module"
+      src="https://jsdev.arcgis.com/4.34/charts-components/"
+    ></script>
+    <script
+      type="module"
+      src="https://jsdev.arcgis.com/4.34/coding-components/"
+    ></script>
+
+    <!-- Demo imports -->
+    <script src="./src/app.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="calcite-mode-light">
+    <calcite-shell>
+      <calcite-navigation slot="header" id="nav">
+        <calcite-navigation-logo
+          href="#"
+          icon="car"
+          alt="Application logo"
+          slot="logo"
+          heading="Web components demo"
+          description="Esri European Developer & Technology Summit 2025"
+        ></calcite-navigation-logo>
+        <calcite-action-pad
+          layout="horizontal"
+          expand-disabled
+          slot="content-end"
+        >
+         <calcite-action
+            id="toggle-code-1"
+            text-enabled
+            text="1"
+            icon="code"
+          ></calcite-action>
+           <calcite-action
+            id="toggle-code-2"
+            text-enabled
+            text="2"            
+            icon="code"
+          ></calcite-action>
+           <calcite-action
+            id="toggle-code-3"
+            text-enabled
+            text="3"            
+            icon="code"
+          ></calcite-action>
+          <calcite-action
+            id="toggle-mode"
+            text="Toggle mode"
+            icon="brightness"
+          ></calcite-action>
+          <calcite-action
+            id="toggle-selection"
+            text="Selection"
+            icon="circle-area-hash-filled"
+            disabled
+          ></calcite-action>
+        </calcite-action-pad>
+      </calcite-navigation>
+
+      <calcite-panel>
+        <div class="grid-container">
+          <calcite-panel class="panel-start" heading="Map options">
+            <!-- Map Components -->          
+            <calcite-block collapsible heading="Map Layers" style="--calcite-block-padding: 0">
+              <arcgis-layer-list reference-element="map-component"></arcgis-layer-list>
+            </calcite-block>
+
+            <calcite-block collapsible heading="Map Legend">
+              <arcgis-legend reference-element="map-component"></arcgis-legend>
+            </calcite-block>
+
+            <!-- Statistics -->
+            <calcite-block id="calcite-block-statistics" open heading="Statistics" style="display: none;">
+              <calcite-label layout="inline-space-between"><strong>Highlighted accidents</strong><span id="span-value-total-accidents">0</span></calcite-label>
+              <calcite-label layout="inline-space-between"><strong>Maximum speed</strong><span id="span-value-max-speed"></span></calcite-label>
+              <div id="div-max-speed"></div>
+              
+              <!-- <calcite-label layout="inline-space-between"><strong>Weather circumstances</strong><span id="span-value-weather"></span></calcite-label>
+              <div id="div-weather-circumstances"></div> -->
+              
+            </calcite-block>
+
+            <!-- Time Slider-->
+             <div slot="footer" id="time-slider-container">
+              <arcgis-time-slider
+                    layout="compact"
+                    mode="time-window"
+                    play-rate="1000"
+                    reference-element="map-component"
+                    style="padding: 10px"
+                    time-zone="system"
+                  ></arcgis-time-slider>
+              </div>
+          </calcite-panel>
+
+        <calcite-panel class="panel-map" heading="Map">
+            <!-- MAP -->
+          <arcgis-map item-id="d5d229c30a43498bae01d637b99dfdaf" id="map-component">
+              <arcgis-zoom slot="top-left"></arcgis-zoom>
+              <!-- <arcgis-legend slot="top-right"></arcgis-legend>
+              <arcgis-layer-list slot="bottom-right"></arcgis-layer-list>  -->
+          </arcgis-map>
+        </calcite-panel>
+
+        <!-- CHARTS -->
+        <calcite-panel id="chart-panel-container-1" class="panel-chart-1" heading="" style="z-index: 1;">
+          <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="0"></arcgis-chart>
+        </calcite-panel>
+
+        <calcite-panel id="chart-panel-container-2" class="panel-chart-2" heading="" style="z-index: 1;">
+         <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="1"></arcgis-chart>
+        </calcite-panel>
+
+        <calcite-panel id="chart-panel-container-3" class="panel-chart-3" heading="" style="z-index: 1;">
+          <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="2"></arcgis-chart>
+        </calcite-panel>
+        </div>
+      </calcite-panel>
+    </calcite-shell>
+
+    <!-- Dialog with code editor -->
+
+    <!-- First code snippet -->
+    <!-- <calcite-block open collapsible heading="Map Layers" style="--calcite-block-padding: 0">
+      <arcgis-layer-list reference-element="map-component"></arcgis-layer-list>
+    </calcite-block>
+
+    <calcite-block open collapsible heading="Map Legend">
+      <arcgis-legend reference-element="map-component"></arcgis-legend>
+    </calcite-block> -->
+
+
+     <calcite-dialog modal heading="Map components - reference-element" id="dialog-code-1">
+        <arcgis-code-editor style="height: 150px" language="html" value="&lt;calcite-block open collapsible heading=&quot;Map Layers&quot;&gt;
+  &lt;arcgis-layer-list reference-element=&quot;map-component&quot;&gt;&lt;/arcgis-layer-list&gt;
+&lt;/calcite-block&gt;
+
+&lt;calcite-block open collapsible heading=&quot;Map Legend&quot;&gt;
+  &lt;arcgis-legend reference-element=&quot;map-component&quot;&gt;&lt;/arcgis-legend&gt;
+&lt;/calcite-block&gt;">
+        </arcgis-code-editor>
+    </calcite-dialog>
+
+    <!-- Second code snippet -->
+    <!-- <body class="calcite-mode-light">
+
+    document.body.classList.toggle("calcite-mode-dark", isDarkMode); -->
+
+    <calcite-dialog modal heading="Dark mode" id="dialog-code-2">
+        <arcgis-code-editor style="height: 75px" language="html" value="&lt;body class=&quot;calcite-mode-light&quot;&gt;
+  ...
+&lt;body&gt;"></arcgis-code-editor>
+
+        <arcgis-code-editor style="height: 175px" language="javascript" value="
+document.body.classList.toggle(&quot;calcite-mode-light&quot;, &quot;calcite-mode-dark&quot;);
+
+arcgisMap.itemId = isDarkMode
+  ? &quot;877a394191264b609fa78b8fc17261df&quot;
+  : &quot;d5d229c30a43498bae01d637b99dfdaf&quot;;
+        ">
+        </arcgis-code-editor>
+    </calcite-dialog>
+
+    <!-- Third code snippet -->
+    <!-- <calcite-panel id="chart-panel-container-1" class="panel-chart-1" heading="Chart">
+      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="0"></arcgis-chart>
+    </calcite-panel>
+
+    <calcite-panel id="chart-panel-container-2" class="panel-chart-2" heading="Chart">
+      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="1"></arcgis-chart>
+    </calcite-panel>
+    
+    <calcite-panel id="chart-panel-container-3" class="panel-chart-3" heading="Chart">
+      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="2"></arcgis-chart>
+    </calcite-panel> -->
+
+    <!-- &lt;calcite-panel id=&quot;chart-panel-container-1&quot; class=&quot;panel-chart-1&quot; heading=&quot;Chart&quot;&gt;
+  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;0&quot;&gt;
+  &lt;/arcgis-chart&gt;
+&lt;/calcite-panel&gt;
+
+&lt;calcite-panel id=&quot;chart-panel-container-2&quot; class=&quot;panel-chart-2&quot; heading=&quot;Chart&quot;&gt;
+  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;1&quot;&gt;
+  &lt;/arcgis-chart&gt;
+&lt;/calcite-panel&gt;
+
+&lt;calcite-panel id=&quot;chart-panel-container-3&quot; class=&quot;panel-chart-3&quot; heading=&quot;Chart&quot;&gt;
+  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;2&quot;&gt;
+  &lt;/arcgis-chart&gt;
+&lt;/calcite-panel&gt; -->
+
+    <calcite-dialog modal heading="Chart syntax" id="dialog-code-3">
+        <arcgis-code-editor style="height: 220px; width: 740px" language="html" value="
+&lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;0&quot;&gt;
+&lt;/arcgis-chart&gt;
+
+&lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;1&quot;&gt;
+&lt;/arcgis-chart&gt;
+
+&lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;2&quot;&gt;
+&lt;/arcgis-chart&gt;
+        ">
+        </arcgis-code-editor>
+    </calcite-dialog>
+
+
+
+
+  </body>
+</html>
