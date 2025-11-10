@@ -103,6 +103,12 @@
               <arcgis-legend reference-element="map-component"></arcgis-legend>
             </calcite-block>
 
+            <calcite-block collapsible heading="Heat Chart">
+              <arcgis-chart id="heatChartElement">
+                <arcgis-charts-action-bar slot="action-bar"></arcgis-charts-action-bar>
+              </arcgis-chart>
+            </calcite-block>
+
             <!-- Statistics -->
             <calcite-block id="calcite-block-statistics" open heading="Statistics" style="display: none;">
               <calcite-label layout="inline-space-between"><strong>Highlighted accidents</strong><span id="span-value-total-accidents">0</span></calcite-label>
@@ -133,7 +139,9 @@
               <arcgis-zoom slot="top-left"></arcgis-zoom>
               <!-- <arcgis-legend slot="top-right"></arcgis-legend>
               <arcgis-layer-list slot="bottom-right"></arcgis-layer-list>  -->
+             
           </arcgis-map>
+
         </calcite-panel>
 
         <!-- CHARTS -->

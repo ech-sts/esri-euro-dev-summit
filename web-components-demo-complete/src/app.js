@@ -36,6 +36,8 @@ let FeatureFilter;
 let Graphic;
 let promiseUtils;
 let reactiveUtils;
+let FeatureLayer;
+let createModel;
 
 /**
  * Demo variables
@@ -45,6 +47,7 @@ let layer;
 let layerView;
 let highlight;
 let projectOperator;
+
 
 async function initialize() {
   
@@ -64,6 +67,11 @@ async function initialize() {
   projectOperator = await $arcgis.import(
     "@arcgis/core/geometry/operators/projectOperator.js"
   );
+
+  ({createModel} = await $arcgis.import("@arcgis/charts-components"));
+
+  FeatureLayer = await $arcgis.import("@arcgis/core/layers/FeatureLayer.js");
+
   await projectOperator.load();
 
   await arcgisMap.viewOnReady();
@@ -75,6 +83,7 @@ async function initialize() {
   if (arcgisMap.ready) {
     enableTimeSlider();
     updateCharts();
+    
 
     layerView = await arcgisMap.view.whenLayerView(layer);
     reactiveUtils
@@ -86,7 +95,12 @@ async function initialize() {
   }
 }
 
-initialize();
+initialize().then(() => {
+  createHeatChart().then(() => {
+    console.log("Heat chart created");
+  })
+});
+
 
 function handleModeChange() {
   // Flip the mode from light to dark or vice versa
@@ -282,3 +296,47 @@ const createAndUpdateDomElementValues = (id, values) => {
   }
   
 };
+
+const createHeatChart = async() => {
+  const heatChartElement = document.getElementById("heatChartElement");
+  
+  //accidents NL
+  const featureLayer = new FeatureLayer({
+      portalItem: {
+        id: "9fb1a863ec884fb0826c51a69539afdb"
+      }
+    });
+  
+  // https://developers.arcgis.com/javascript/latest/charts-model/heat-chart-model/
+  const heatChartModel = await createModel({ layer: featureLayer, chartType: "heatChart" });
+  
+  heatChartModel.xAxisField = "JAAR_VKL"; // Year of occurrence
+  heatChartModel.yAxisField = "AOL_ID"; // Aard ongeval = Type of accident
+  heatChartModel.numericFields = ["MAXSNELHD"]; // Maximum speed
+  heatChartModel.aggregationType = "avg";
+
+    // heatChartModel.xTemporalBinning = { unit: "monthOfYear" };
+    // heatChartModel.yTemporalBinning = { unit: "dayOfMonth" };
+    // heatChartModel.setAxisValueFormat(0, { type: "date", intlOptions: { month: "long" } });
+    // heatChartModel.setAxisValueFormat(1, { type: "date", intlOptions: { weekday: "long" } });
+
+    // heatChartModel.gradientRules = {
+    //   colorList: [
+    //     [200, 225, 255, 255],
+    //     [220, 0, 0, 255],
+    //   ],
+    //   minValue: 15,
+    //   maxValue: 80,
+    //   outsideRangeLowerColor: [240, 248, 255, 255],
+    //   outsideRangeUpperColor: [160, 30, 30, 255],
+    // };
+
+    // heatChartModel.titleText = "Average Price of NYC Hotels";
+    // heatChartModel.subtitleText = "Grouped by Month of Year and Day of Month";
+    // heatChartModel.setAxisTitleText("Month", 0);
+    // heatChartModel.setAxisTitleText("Day", 1);
+
+    heatChartModel.dataLabelsVisibility = true;
+    heatChartElement.autoInverseDataLabelTextColor = true;
+    heatChartElement.model = heatChartModel;
+}
