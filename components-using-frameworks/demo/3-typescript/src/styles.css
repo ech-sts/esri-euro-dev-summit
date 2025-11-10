@@ -49,12 +49,17 @@ calcite-navigation-logo {
 #elevation-panel {
   box-shadow: none;
   border: none;
-  height: 400px;
+  height: 450px;
   padding: 0;
   margin: 0;
   width: 100%;
   border-radius: 0;
   border-top: 1px solid var(--calcite-color-border-3);
+}
+
+
+arcgis-elevation-profile {
+  width: 100%;
 }
 
 #elevation-panel calcite-chip-group {

@@ -46,10 +46,15 @@ calcite-navigation-logo {
   --chart-height: 130px;
 }
 
+
+arcgis-elevation-profile {
+  width: 100%;
+}
+
 #elevation-panel {
   box-shadow: none;
   border: none;
-  height: 400px;
+  height: 450px;
   padding: 0;
   margin: 0;
   width: 100%;

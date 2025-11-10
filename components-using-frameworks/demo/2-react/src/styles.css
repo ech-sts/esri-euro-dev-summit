@@ -49,7 +49,7 @@ calcite-navigation-logo {
 #elevation-panel {
   box-shadow: none;
   border: none;
-  height: 400px;
+  height: 450px;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -60,6 +60,11 @@ calcite-navigation-logo {
 #elevation-panel calcite-chip-group {
   margin-inline-end: 0.5rem;
 }
+
+
+      arcgis-elevation-profile {
+        width: 100%;
+      }
 
 calcite-shell-panel[slot="panel-bottom"] {
   margin-bottom: 1rem;
