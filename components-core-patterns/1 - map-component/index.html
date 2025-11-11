@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>Map Component</title>
+    <!-- Load Calcite components from CDN -->
+    <script type="module" src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"></script>
+
+    <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load Map components from CDN-->
+    <script type="module" src="https://js.arcgis.com/4.34/map-components/"></script>
+    <link rel="stylesheet" href="./styles.css" />    
+  </head>
+    <script>
+        const layerList = document.querySelector("arcgis-layer-list");
+        layerList.
+    </script>
+
+  <body>
+    <div id="base">
+        <div id="mapcontainer">       
+            <arcgis-map id="map" item-id="5d6891b48d4740d1ba24f9ad5216bf42">  
+            
+                <calcite-chip slot="top-left">top-left 1</calcite-chip>
+                <calcite-chip slot="top-left">top-left 2</calcite-chip>            
+                
+                <calcite-chip slot="top-right">top-right 1</calcite-chip>
+                <calcite-chip slot="top-right">top-right 2</calcite-chip>
+                        
+                <calcite-chip slot="bottom-left">bottom-left 1</calcite-chip>
+                <calcite-chip slot="bottom-left">bottom-left 2</calcite-chip>
+                
+                <calcite-chip slot="bottom-right">bottom-right 1</calcite-chip>
+                <calcite-chip slot="bottom-right">bottom-right 2</calcite-chip>
+            
+                <arcgis-expand slot = "top-left">
+                    <arcgis-layer-list ></arcgis-layer-list>
+                </arcgis-expand>    
+            
+            </arcgis-map>
+        </div>   
+        <div id = "toolcontainer" >
+            <arcgis-legend reference-element="map" ></arcgis-legend>
+        </div>      
+    </div>   
+  </body>
+</html>
