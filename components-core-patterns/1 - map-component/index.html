@@ -14,9 +14,24 @@
     <script type="module" src="https://js.arcgis.com/4.34/map-components/"></script>
     <link rel="stylesheet" href="./styles.css" />    
   </head>
-    <script>
-        const layerList = document.querySelector("arcgis-layer-list");
-        layerList.
+    
+    <script>    
+        const onSliderChange = (event) => {
+            const opacityValue = event.target.value / 100;
+            const mapElement = document.querySelector('arcgis-map'); 
+            const basemap = mapElement?.view?.map?.basemap;
+            basemap?.baseLayers?.map((layer) => layer.opacity = opacityValue);
+        };
+
+         document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('calcite-slider');
+            if (slider) {
+                slider.addEventListener('calciteSliderChange', onSliderChange);
+            }
+        });    
+
+        // const layerList = document.querySelector('arcgis-layer-list')
+       
     </script>
 
   <body>
@@ -24,27 +39,31 @@
         <div id="mapcontainer">       
             <arcgis-map id="map" item-id="5d6891b48d4740d1ba24f9ad5216bf42">  
             
-                <calcite-chip slot="top-left">top-left 1</calcite-chip>
-                <calcite-chip slot="top-left">top-left 2</calcite-chip>            
-                
-                <calcite-chip slot="top-right">top-right 1</calcite-chip>
-                <calcite-chip slot="top-right">top-right 2</calcite-chip>
-                        
-                <calcite-chip slot="bottom-left">bottom-left 1</calcite-chip>
-                <calcite-chip slot="bottom-left">bottom-left 2</calcite-chip>
-                
-                <calcite-chip slot="bottom-right">bottom-right 1</calcite-chip>
-                <calcite-chip slot="bottom-right">bottom-right 2</calcite-chip>
-            
-                <arcgis-expand slot = "top-left">
-                    <arcgis-layer-list ></arcgis-layer-list>
-                </arcgis-expand>    
-            
+              <calcite-chip slot="top-left">top-left 1</calcite-chip>
+              <calcite-chip slot="top-left">top-left 2</calcite-chip>            
+              
+              <calcite-chip slot="top-right">top-right 1</calcite-chip>
+              <calcite-chip slot="top-right">top-right 2</calcite-chip>
+                      
+              <calcite-chip slot="bottom-left">bottom-left 1</calcite-chip>
+              <calcite-chip slot="bottom-left">bottom-left 2</calcite-chip>
+              
+              <calcite-chip slot="bottom-right">bottom-right 1</calcite-chip>
+              <calcite-chip slot="bottom-right">bottom-right 2</calcite-chip>
+              
+              <!-- <arcgis-layer-list slot="top-left" ></arcgis-layer-list>                           -->
+               
             </arcgis-map>
         </div>   
-        <div id = "toolcontainer" >
+
+        <!-- <div id = "toolcontainer" >
+          <calcite-block heading="Legend" expanded scale="l">
             <arcgis-legend reference-element="map" ></arcgis-legend>
-        </div>      
+          </calcite-block>            
+          <calcite-block heading="Basemap Opacity" expanded scale="l">
+              <calcite-slider value="100", max-value="100" calciteSliderChange="onSliderChange"></calcite-slider>   
+          </calcite-block>
+        </div>       -->
     </div>   
   </body>
 </html>
