@@ -137,9 +137,6 @@
             <!-- MAP -->
           <arcgis-map item-id="d5d229c30a43498bae01d637b99dfdaf" id="map-component">
               <arcgis-zoom slot="top-left"></arcgis-zoom>
-              <!-- <arcgis-legend slot="top-right"></arcgis-legend>
-              <arcgis-layer-list slot="bottom-right"></arcgis-layer-list>  -->
-             
           </arcgis-map>
 
         </calcite-panel>
@@ -159,19 +156,7 @@
         </div>
       </calcite-panel>
     </calcite-shell>
-
-    <!-- Dialog with code editor -->
-
-    <!-- First code snippet -->
-    <!-- <calcite-block open collapsible heading="Map Layers" style="--calcite-block-padding: 0">
-      <arcgis-layer-list reference-element="map-component"></arcgis-layer-list>
-    </calcite-block>
-
-    <calcite-block open collapsible heading="Map Legend">
-      <arcgis-legend reference-element="map-component"></arcgis-legend>
-    </calcite-block> -->
-
-
+    
      <calcite-dialog modal heading="Map components - reference-element" id="dialog-code-1">
         <arcgis-code-editor style="height: 150px" language="html" value="&lt;calcite-block open collapsible heading=&quot;Map Layers&quot;&gt;
   &lt;arcgis-layer-list reference-element=&quot;map-component&quot;&gt;&lt;/arcgis-layer-list&gt;
@@ -183,11 +168,7 @@
         </arcgis-code-editor>
     </calcite-dialog>
 
-    <!-- Second code snippet -->
-    <!-- <body class="calcite-mode-light">
-
-    document.body.classList.toggle("calcite-mode-dark", isDarkMode); -->
-
+   
     <calcite-dialog modal heading="Dark mode" id="dialog-code-2">
         <arcgis-code-editor style="height: 75px" language="html" value="&lt;body class=&quot;calcite-mode-light&quot;&gt;
   ...
@@ -203,34 +184,7 @@ arcgisMap.itemId = isDarkMode
         </arcgis-code-editor>
     </calcite-dialog>
 
-    <!-- Third code snippet -->
-    <!-- <calcite-panel id="chart-panel-container-1" class="panel-chart-1" heading="Chart">
-      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="0"></arcgis-chart>
-    </calcite-panel>
-
-    <calcite-panel id="chart-panel-container-2" class="panel-chart-2" heading="Chart">
-      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="1"></arcgis-chart>
-    </calcite-panel>
-    
-    <calcite-panel id="chart-panel-container-3" class="panel-chart-3" heading="Chart">
-      <arcgis-chart layer-item-id="9fb1a863ec884fb0826c51a69539afdb" chart-index="2"></arcgis-chart>
-    </calcite-panel> -->
-
-    <!-- &lt;calcite-panel id=&quot;chart-panel-container-1&quot; class=&quot;panel-chart-1&quot; heading=&quot;Chart&quot;&gt;
-  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;0&quot;&gt;
-  &lt;/arcgis-chart&gt;
-&lt;/calcite-panel&gt;
-
-&lt;calcite-panel id=&quot;chart-panel-container-2&quot; class=&quot;panel-chart-2&quot; heading=&quot;Chart&quot;&gt;
-  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;1&quot;&gt;
-  &lt;/arcgis-chart&gt;
-&lt;/calcite-panel&gt;
-
-&lt;calcite-panel id=&quot;chart-panel-container-3&quot; class=&quot;panel-chart-3&quot; heading=&quot;Chart&quot;&gt;
-  &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;2&quot;&gt;
-  &lt;/arcgis-chart&gt;
-&lt;/calcite-panel&gt; -->
-
+   
     <calcite-dialog modal heading="Chart syntax" id="dialog-code-3">
         <arcgis-code-editor style="height: 220px; width: 740px" language="html" value="
 &lt;arcgis-chart layer-item-id=&quot;9fb1a863ec884fb0826c51a69539afdb&quot; chart-index=&quot;0&quot;&gt;
