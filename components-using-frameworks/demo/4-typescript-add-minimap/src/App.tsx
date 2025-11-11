@@ -65,8 +65,8 @@ function App() {
   );
   const [selectedGraphic, setSelectedGraphic] = React.useState<
     undefined | null | __esri.Graphic
-  >(undefined);
-
+  >(undefined); 
+  
   const handleElevationProfileChange = (
     event: HTMLArcgisElevationProfileElement["arcgisPropertyChange"],
   ) => {
@@ -108,7 +108,7 @@ function App() {
         <div className="content-start">
           <calcite-panel id="map-container">
             <arcgis-map
-              item-id="84d4324f8ebf4612878fcaea6f54d532"
+              item-id="5d6891b48d4740d1ba24f9ad5216bf42"
               ground="world-elevation"              
               id="map"
             ></arcgis-map>

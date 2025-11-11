@@ -53,7 +53,7 @@ function App() {
         <div className="content-start">
           <calcite-panel id="map-container">
             <arcgis-map
-              itemId="84d4324f8ebf4612878fcaea6f54d532"
+              itemId="5d6891b48d4740d1ba24f9ad5216bf42"
               ground="world-elevation"              
               id="map"
             ></arcgis-map>
