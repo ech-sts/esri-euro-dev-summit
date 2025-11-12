@@ -39,7 +39,8 @@
     ></script>
 
     <!-- Demo imports -->
-    <script src="./src/app.js" defer></script>
+    <script src="./app.js" defer></script>
+    <script src="./heatChart.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
@@ -95,7 +96,7 @@
         <div class="grid-container">
           <calcite-panel class="panel-start" heading="Map options">
             <!-- Map Components -->          
-            <calcite-block collapsible heading="Map Layers" style="--calcite-block-padding: 0">
+                       <calcite-block collapsible heading="Map Layers" style="--calcite-block-padding: 0">
               <arcgis-layer-list reference-element="map-component"></arcgis-layer-list>
             </calcite-block>
 
@@ -103,7 +104,8 @@
               <arcgis-legend reference-element="map-component"></arcgis-legend>
             </calcite-block>
 
-            <calcite-block collapsible heading="Heat Chart">
+            <!-- Heat Chart-->
+            <calcite-block collapsible heading="Heat Chart" open>
               <arcgis-chart id="heatChartElement">
                 <arcgis-charts-action-bar slot="action-bar"></arcgis-charts-action-bar>
               </arcgis-chart>

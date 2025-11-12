@@ -28,13 +28,13 @@
             if (slider) {
                 slider.addEventListener('calciteSliderChange', onSliderChange);
             }
-        });    
-
-        // const layerList = document.querySelector('arcgis-layer-list')
+        });            
        
     </script>
 
   <body>
+    <calcite-shell>
+     
     <div id="base">
         <div id="mapcontainer">       
             <arcgis-map id="map" item-id="5d6891b48d4740d1ba24f9ad5216bf42">  
@@ -51,19 +51,20 @@
               <calcite-chip slot="bottom-right">bottom-right 1</calcite-chip>
               <calcite-chip slot="bottom-right">bottom-right 2</calcite-chip>
               
-              <!-- <arcgis-layer-list slot="top-left" ></arcgis-layer-list>                           -->
+              <arcgis-layer-list slot="top-left" visibility-appearance="checkbox"></arcgis-layer-list>                          
                
             </arcgis-map>
         </div>   
 
-        <!-- <div id = "toolcontainer" >
-          <calcite-block heading="Legend" expanded scale="l">
+        <div id = "toolcontainer" >
+          <!-- <calcite-block heading="Legend" expanded scale="l">
             <arcgis-legend reference-element="map" ></arcgis-legend>
           </calcite-block>            
           <calcite-block heading="Basemap Opacity" expanded scale="l">
               <calcite-slider value="100", max-value="100" calciteSliderChange="onSliderChange"></calcite-slider>   
-          </calcite-block>
-        </div>       -->
-    </div>   
+          </calcite-block> -->
+        </div>       
+    </div> 
+    </calcite-shell>  
   </body>
 </html>
