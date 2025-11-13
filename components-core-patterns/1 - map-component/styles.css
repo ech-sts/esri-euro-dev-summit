@@ -6,10 +6,15 @@ body {
 }
 
 :root {
-	/* --calcite-color-text-1: #f8f9fa; */
-	/* --calcite-color-text-2: #3c83b7; */
+	--calcite-color-text-1: #3c83b7;
+	--calcite-color-text-2: #3c83b7;
 	--calcite-color-text-3: #3c83b7;
-	/* --calcite-shell-panel-background-color: rgb(118, 133, 116);  */
+	--calcite-shell-panel-background-color: #e6800d;
+}
+
+calcite-chip {
+	--calcite-chip-background-color: #ebc395;
+	--calcite-chip-text-color: #20218b;
 }
 
 /* Make panel a flex container with horizontal layout */
@@ -24,12 +29,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-width: 250px;
+	border: 2px solid transparent; /* always take up space */
 
-	/* background-color: rgb(118, 133, 116);  */
 }
 
 #toolcontainer:hover {
-	background-color: rgb(118, 133, 116);
+	border: 2px solid #e6800d;
 }
 
 /* Right container (map) - flex to fill remaining space */
