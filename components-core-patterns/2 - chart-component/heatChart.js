@@ -29,19 +29,10 @@ const createHeatChart = async () => {
 
 	// heatChartModel.setAxisValueFormat(1, { type: "date", intlOptions: { weekday: "long" } });
 
-	// heatChartModel.gradientRules = {
-	//   colorList: [
-	//     [200, 225, 255, 255],
-	//     [220, 0, 0, 255],
-	//   ],
-	//   minValue: 15,
-	//   maxValue: 80,
-	//   outsideRangeLowerColor: [240, 248, 255, 255],
-	//   outsideRangeUpperColor: [160, 30, 30, 255],
-	// };
+	
 
-	// heatChartModel.titleText = "Average Price of NYC Hotels";
-	// heatChartModel.subtitleText = "Grouped by Month of Year and Day of Month";
+	heatChartModel.titleText = "Average Speed of Traffic Accidents in NL";
+	heatChartModel.subtitleText = "Grouped by Year and Type of Accident";
 	heatChartModel.setAxisTitleText("Year", 0);
 	heatChartModel.setAxisTitleText("Accident type", 1);
 

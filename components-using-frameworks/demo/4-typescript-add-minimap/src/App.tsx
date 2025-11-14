@@ -54,7 +54,7 @@ function App() {
 				<calcite-navigation-logo
 					slot="logo"
 					icon="map"
-					heading="US National Parks"
+					heading="Swiss Hiking Routes"
 					description="Trail Explorer"
 				></calcite-navigation-logo>
 			</calcite-navigation>
