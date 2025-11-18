@@ -21,8 +21,8 @@ const createHeatChart = async () => {
 	heatChartModel.numericFields = ["MAXSNELHD"]; // Maximum speed
 	heatChartModel.aggregationType = "avg";
 
-	heatChartModel.titleText = "Average Speed of Traffic Accidents in NL";
-	heatChartModel.subtitleText = "Grouped by Year and Type of Accident";
+	// heatChartModel.titleText = "Average Speed of Traffic Accidents in NL";
+	// heatChartModel.subtitleText = "Grouped by Year and Type of Accident";
 	heatChartModel.setAxisTitleText("Year", 0);
 	heatChartModel.setAxisTitleText("Accident type", 1);
 
@@ -37,7 +37,7 @@ const connectToMap = (heatChartElement, mapElement) => {
 	let highlightSelect;
 	// Set the view of the chart element to the map view, to be used for the extent filter
 	heatChartElement.view = mapElement.view;
-
+	
 	
 	// Add an event listener to the `arcgisViewClick` event on the `arcgis-map` element.
 	// When user clicks on a feature on the map, the corresponding feature is highlighted on the chart.
